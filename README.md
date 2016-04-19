@@ -18,7 +18,7 @@ Les objectifs du laboratoire sont :
 
 ## Installation et configuration
 
-L'**installation** de l'application se fait en trois étapes :
+### Installation de l'application
 
 1. récupérer le contenu de ce repository
 
@@ -29,7 +29,7 @@ L'**installation** de l'application se fait en trois étapes :
 4. perdre vos amis
 
 
-Fichiers de **configuration** :
+### Fichiers de configuration
 
 * **config/config.properties** (paramètres SMTP et configuration des groupes) 
 
