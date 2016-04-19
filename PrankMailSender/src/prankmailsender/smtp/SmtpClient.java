@@ -10,19 +10,37 @@ import java.util.logging.Logger;
 import prankmailsender.model.mail.IMail;
 
 /**
- *
+ * Concrete SMTP client
  * @author Amel Dussier
  */
 public class SmtpClient implements ISmtpClient {
 
+    /**
+     * Logger
+     */
     private static final Logger LOG = Logger.getLogger(SmtpClient.class.getName());
     
+    /**
+     * Encoding used to communicate with SMTP server
+     */
+    private static final String ENCODING = "UTF-8";
+    
+    /**
+     * The server address
+     */
     private final String serverAddress;
     
+    /**
+     * The server port
+     */
     private final int serverPort;
     
+    /**
+     * Constructor
+     * @param address The SMTP server address
+     * @param port The SMTP server port
+     */
     public SmtpClient(String address, int port) {
-        
         serverAddress = address;
         serverPort = port;
     }
@@ -34,8 +52,8 @@ public class SmtpClient implements ISmtpClient {
         Socket socket = new Socket(serverAddress, serverPort);
         
         // get input & ouput streams
-        BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream(), "UTF-8"));
-        PrintWriter writer = new PrintWriter(new OutputStreamWriter(socket.getOutputStream(), "UTF-8"));
+        BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream(), ENCODING));
+        PrintWriter writer = new PrintWriter(new OutputStreamWriter(socket.getOutputStream(), ENCODING));
         
         // read server welcome message
         String line = reader.readLine();
@@ -43,6 +61,7 @@ public class SmtpClient implements ISmtpClient {
         
         // announce to server
         writer.println("EHLO dummy");
+        writer.flush();
         
         // get server features
         do {
@@ -55,15 +74,17 @@ public class SmtpClient implements ISmtpClient {
             throw new IOException("SMTP server returned : " + line);
         
         // send mail from
-        writer.println("MAIL FROM:" + mail.getFrom());
+        writer.println("MAIL FROM:" + mail.getSender());
+        writer.flush();
         
         // read server response
         line = reader.readLine();
         LOG.info(line);
         
-        for(String to : mail.getTo()) {
+        for(String to : mail.getRecipients()) {
             // send rcpt to
             writer.println("RCPT TO: " + to);
+            writer.flush();
             
             // read server response
             line = reader.readLine();
@@ -72,12 +93,40 @@ public class SmtpClient implements ISmtpClient {
         
         // send data
         writer.println("DATA");
+        writer.flush();
         
         // read server response
         line = reader.readLine();
         LOG.info(line);
         
         // send header
-        writer.println("FROM: " + mail.getFrom());
+        writer.println("From: " + mail.getSender());
+        writer.print("To: " + mail.getRecipients().get(0));
+        for (int i = 1; i < mail.getRecipients().size(); i++)
+            writer.print(", " + mail.getRecipients().get(i));
+        writer.println();
+        writer.println("Subject: " + mail.getSubject());
+        writer.flush();
+        writer.println();
+        
+        // send body
+        writer.println(mail.getBody());
+        
+        // end mail
+        writer.println(".");
+        writer.flush();
+        
+        // read server response
+        line = reader.readLine();
+        LOG.info(line);
+        
+        // quit
+        writer.println("QUIT");
+        writer.flush();
+        
+        // close socket and streams
+        writer.close();
+        reader.close();
+        socket.close();
     }
 }

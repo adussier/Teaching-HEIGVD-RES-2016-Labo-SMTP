@@ -3,31 +3,52 @@ package prankmailsender.model.mail;
 import java.util.List;
 
 /**
- *
+ * Concrete mail
  * @author Amel Dussier
  */
 public class Mail implements IMail {
 
-    private final String from;
-    private final List<String> to;
+    /**
+     * The senders address
+     */
+    private final String sender;
+    
+    /**
+     * The list of recipients
+     */
+    private final List<String> recipients;
+    
+    /**
+     * The subject
+     */
     private final String subject;
+    
+    /**
+     * The body
+     */
     private final String body;
     
-    public Mail(String from, List<String> to, String subject, String body) {
-        this.from = from;
-        this.to = to;
-        this.subject = subject;
-        this.body = body;
+    /**
+     * Constructor
+     * @param sender The senders mail address
+     * @param recipients The recipients mail addresses
+     * @param content The mail content
+     */
+    public Mail(String sender, List<String> recipients, MailContent content) {
+        this.sender = sender;
+        this.recipients = recipients;
+        this.subject = content.getSubject();
+        this.body = content.getBody();
     }
     
     @Override
-    public String getFrom() {
-        return from;
+    public String getSender() {
+        return sender;
     }
     
     @Override
-    public List<String> getTo() {
-        return to;
+    public List<String> getRecipients() {
+        return recipients;
     }
 
     @Override
