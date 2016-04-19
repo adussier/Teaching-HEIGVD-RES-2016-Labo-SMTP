@@ -18,7 +18,7 @@ Les objectifs du laboratoire sont :
 
 ## Installation et configuration
 
-L'installation de l'application se fait en trois étapes :
+L'**installation** de l'application se fait en trois étapes :
 
 1. récupérer le contenu de ce repository
 
@@ -29,9 +29,9 @@ L'installation de l'application se fait en trois étapes :
 4. perdre vos amis
 
 
-Fichiers de configuration :
+Fichiers de **configuration** :
 
-* Paramètres SMTP et configuration des groupes : _config/config.properties_
+* **config/config.properties** (paramètres SMTP et configuration des groupes) 
 
   * _smtpServerAddress_ : adresse du serveur SMTP
   
@@ -39,23 +39,23 @@ Fichiers de configuration :
   
   * _numberOfGroups_ : nombre de groupes à créer
   
-  * _minimumGroupMembers_ : nombre minimum de personnes par groupe (1 expéditeur fictif, le reste seront des destinataires)
+  * _minimumGroupMembers_ : nombre minimum de personnes par groupe (un expéditeur fictif, le reste seront des destinataires)
 
   
-* Liste des adresses mail cibles : _config/victims.utf8_
+* **config/victims.utf8** (liste des adresses mail cibles)
 
   * chaque ligne a la syntaxe suivante : _<prénom>;<nom>;<adresse_mail>
   
   * les noms et prénoms ne sont pas encore utilisés pour personnaliser les mails, mais peut-être dans une prochaine version
 
   
-* Liste des messages à envoyer : _config/messages.utf8_
+* **config/messages.utf8** (liste des messages à envoyer)
 
   * chaque message à la syntaxe suivante :
-    1. _<sujet du mail>_
-	2. _---_ (séparateur sujet/corps du message)
-	3. _<corps du message>_ (une ou plusieurs lignes)
-	4. _###_ (séparateur de messages)
+    1. sujet du mail
+	2. --- (séparateur sujet/corps du message)
+	3. corps du message (une ou plusieurs lignes)
+	4. ### (séparateur de messages)
 
 
   
@@ -70,4 +70,4 @@ L'application a été testé avec [fakeSMTP](https://nilhcem.github.io/FakeSMTP/
 
 Ci-dessous une capture du résultat visible dans **fakeSMTP**, après lancement du programme Java avec la configuration par défaut :
 
-![Capture fakeSMTP](https://github.com/adussier/Teaching-HEIGVD-RES-2016-Labo-SMTP/tree/master/figures/fakeSMTP.png)
+![Capture fakeSMTP](figures/fakeSMTP.png)
