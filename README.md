@@ -44,7 +44,7 @@ Les objectifs du laboratoire sont :
   
 * **config/victims.utf8** (liste des adresses mail cibles)
 
-  * chaque ligne a la syntaxe suivante : _<prénom>;<nom>;<adresse_mail>
+  * chaque ligne a la syntaxe suivante : prénom;nom;adresse_mail
   
   * les noms et prénoms ne sont pas encore utilisés pour personnaliser les mails, mais peut-être dans une prochaine version
 
