@@ -61,12 +61,30 @@ Les objectifs du laboratoire sont :
   
 ## Implémentation
 
+L'implémentation du projet sépare le plus possible les différentes responsabilités, à savoir :
+
+* La lecture des fichiers de configuration (_ConfigurationProvider_)
+
+* La génération des "pranks" (_PrankGenerator_)
+
+* L'implémentation du protocole SMTP et l'envoi de mail (_SmtpClient_)
+
+* La coordination des différents modules et la génération des mails à partir des "pranks" (_PrankMailSender_)
+
+Ci-dessous le diagramme des classes utilisées dans le projet :
+
+![Capture fakeSMTP](figures/classDiagram.png)
+
+
+Certaines associations ne sont pas présentes sur le diagramme, pour ne pas surcharger. Les classes _Person_ et _Group_ sont utilisés par la plupart des autres classes.
+
+
 
 ## Utilisation d'un serveur mock SMTP
 
 Si vous voulez seulement tester le logiciel en local, ou éviter de vous faire bloquer par votre provider Internet, vous pouvez utiliser un serveur mock SMTP. Il s'agit d'un serveur SMTP local qui ne fait que répondre aux clients SMTP sans réellement transmettre les mails.
 
-L'application a été testé avec [fakeSMTP](https://nilhcem.github.io/FakeSMTP/). La configuration par défaut est faite pour fonctionner avec ce serveur mock.
+L'application a été testé avec [fakeSMTP](https://nilhcem.github.io/FakeSMTP/). Les fichiers de configuration par défaut du project sont faits pour fonctionner avec ce serveur mock. Il suffit de télécharger et exécuter le serveur mock, puis lancer le projet.
 
 Ci-dessous une capture du résultat visible dans **fakeSMTP**, après lancement du programme Java avec la configuration par défaut :
 
