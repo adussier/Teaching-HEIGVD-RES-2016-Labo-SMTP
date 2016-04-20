@@ -2,7 +2,7 @@ package prankmailsender.model.mail;
 
 /**
  * The content of a mail
- * @author Amel Dussier
+ * @author Amel Dussier & Sarra Berich
  */
 public class MailContent {
     

@@ -6,7 +6,7 @@ import prankmailsender.model.mail.Person;
 
 /**
  * Interface for the configuration provider
- * @author Amel Dussier
+ * @author Amel Dussier & Sarra Berich
  */
 public interface IConfigurationProvider {
     

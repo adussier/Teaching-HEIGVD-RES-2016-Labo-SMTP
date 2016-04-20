@@ -2,7 +2,7 @@ package prankmailsender.model.mail;
 
 /**
  * A simple person
- * @author Amel Dussier
+ * @author Amel Dussier & Sarra Berich
  */
 public class Person {
     

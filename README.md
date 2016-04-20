@@ -26,7 +26,7 @@ Les objectifs du laboratoire sont :
 
 3. compiler et exécuter le projet Java
 
-4. perdre vos amis
+4. perdre vos amis :)
 
 
 ### Fichiers de configuration

@@ -11,7 +11,7 @@ import prankmailsender.model.mail.IMail;
 
 /**
  * Concrete SMTP client
- * @author Amel Dussier
+ * @author Amel Dussier & Sarra Berich
  */
 public class SmtpClient implements ISmtpClient {
 

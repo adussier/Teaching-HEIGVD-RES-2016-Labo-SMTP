@@ -14,7 +14,7 @@ import prankmailsender.model.mail.Person;
 
 /**
  * Concrete configuration provider
- * @author Amel Dussier
+ * @author Amel Dussier & Sarra Berich
  */
 public class ConfigurationProvider implements IConfigurationProvider {
 
@@ -52,12 +52,15 @@ public class ConfigurationProvider implements IConfigurationProvider {
         // load configuration properties        
         InputStream stream = new FileInputStream("./config/config.properties");
         configurationProperties.load(stream);
+        LOG.info(configurationProperties.size() + " configuration parameters loaded");
         
         // load victims
         loadVictims("./config/victims.utf8");
+        LOG.info(victims.size() + " victim addresses loaded");
         
         // load mail contents
         loadMessageContents("./config/messages.utf8");
+        LOG.info(mailContents.size() + " messages loaded");
     }
     
     /**

@@ -5,7 +5,7 @@ import prankmailsender.model.mail.IMail;
 
 /**
  * Interface for an SMTP client
- * @author Amel Dussier
+ * @author Amel Dussier & Sarra Berich
  */
 public interface ISmtpClient {
     

@@ -5,7 +5,7 @@ import java.util.List;
 
 /**
  * A group of persons
- * @author Amel Dussier
+ * @author Amel Dussier & Sarra Berich
  */
 public class Group {
 

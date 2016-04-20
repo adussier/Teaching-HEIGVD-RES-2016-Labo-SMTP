@@ -4,7 +4,7 @@ import java.util.List;
 
 /**
  * Interface for a simple mail
- * @author Amel Dussier
+ * @author Amel Dussier & Sarra Berich
  */
 public interface IMail {
     

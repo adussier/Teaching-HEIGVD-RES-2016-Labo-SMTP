@@ -12,7 +12,7 @@ import prankmailsender.model.mail.Person;
 
 /**
  * The prank generator
- * @author Amel Dussier
+ * @author Amel Dussier & Sarra Berich
  */
 public class PrankGenerator {
     
@@ -48,6 +48,9 @@ public class PrankGenerator {
         if (victims.size() / numberOfGroups < minimumGroupMembers) {
             numberOfGroups = victims.size() / minimumGroupMembers;
             LOG.warning("Not enough mail addresses to satisfy number of groups parameter. Only " + numberOfGroups + " groups will be generated");
+        }
+        else {
+            LOG.info("All " + numberOfGroups + " groups will be generated");
         }
         
         // generate groups

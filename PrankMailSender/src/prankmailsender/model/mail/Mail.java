@@ -4,7 +4,7 @@ import java.util.List;
 
 /**
  * Concrete mail
- * @author Amel Dussier
+ * @author Amel Dussier & Sarra Berich
  */
 public class Mail implements IMail {
 

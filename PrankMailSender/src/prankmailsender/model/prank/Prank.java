@@ -6,7 +6,7 @@ import prankmailsender.model.mail.Person;
 
 /**
  * A mail prank
- * @author Amel Dussier
+ * @author Amel Dussier & Sarra Berich
  */
 public class Prank {
     
